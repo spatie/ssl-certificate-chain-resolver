@@ -1,0 +1,25 @@
+{
+    "name": "spatie/ssl-certificate-chain-resolver",
+    "description": "SSL certificate chain resolver",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Freek Van der Herten",
+            "email": "freek@spatie.be"
+        }
+    ],
+    "require": {
+        "symfony/console": "~2.6",
+        "phpseclib/phpseclib": "0.3.*",
+        "guzzlehttp/guzzle": "~5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Spatie\\": "src"
+        }
+    },
+    "bin": [
+        "mixed-content-scanner"
+    ],
+    "minimum-stability": "stable"
+}
