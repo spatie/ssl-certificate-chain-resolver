@@ -60,7 +60,7 @@ class ResolveCommand extends Command
     /**
      * Get a string with the contents of the given certificatefile and it's entire trust chain
      *
-     * @param  string $certificateFile
+     * @param  string          $certificateFile
      * @param  OutputInterface $output
      * @return String
      * @throws Exception
