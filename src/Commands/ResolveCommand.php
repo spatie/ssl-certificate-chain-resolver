@@ -45,7 +45,7 @@ class ResolveCommand extends Command
     {
         $output->writeln('<info>Start resolving trust chain...</info>');
         $certificateFile = $input->getArgument('certificate');
-        $outputFile = $input->getArgument('outputFile') ?: 'trustChain.crt';
+        $outputFile = $input->getArgument('outputFile') ?: 'certificate-including-trust-chain.crt';
 
         $this->guardAgainstInvalidInput($certificateFile);
 
