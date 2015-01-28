@@ -13,9 +13,11 @@
         "phpseclib/phpseclib": "0.3.*",
         "guzzlehttp/guzzle": "~5.1",
         "codeception/codeception": "~2.0"
+
     },
     "require-dev": {
-        "codeception/codeception": "~2.0"
+        "codeception/codeception": "~2.0",
+        "codeception/specify": "0.4.*"
     },
     "autoload": {
         "psr-4": {

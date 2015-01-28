@@ -1,2 +1,2 @@
 # ssl-certificate-chain-resolver
-SSL certificate chain resolver
+documentation coming soon...
