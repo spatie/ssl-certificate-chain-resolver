@@ -11,8 +11,7 @@
     "require": {
         "symfony/console": "~2.6",
         "phpseclib/phpseclib": "0.3.*",
-        "guzzlehttp/guzzle": "~5.1",
-        "codeception/codeception": "~2.0"
+        "guzzlehttp/guzzle": "~5.1"
 
     },
     "require-dev": {
