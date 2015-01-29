@@ -8,6 +8,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\ConfirmationQuestion;
 
 class ResolveCommand extends Command
 {
@@ -48,6 +49,16 @@ class ResolveCommand extends Command
         $outputFile = $input->getArgument('outputFile') ?: 'certificate-including-trust-chain.crt';
 
         $this->guardAgainstInvalidInput($certificateFile);
+
+        if (file_exists($outputFile)) {
+            $confirmation = $this->confirmOverwrite($input, $output, $outputFile);
+
+            if (! $confirmation) {
+                $output->writeLn("<info>Cancelling...</info>");
+
+                return true;
+            }
+        }
 
         $certificateChain = $this->getCertificateChain($certificateFile, $output);
 
@@ -103,8 +114,31 @@ class ResolveCommand extends Command
      */
     protected function guardAgainstInvalidInput($certificateFile)
     {
-        if (!file_exists($certificateFile)) {
+        if (! file_exists($certificateFile)) {
             throw new Exception('Inputfile'.$certificateFile.' does not exists');
         }
+    }
+
+    /**
+     * Check if outputfile already exists,
+     * if so, ask the user confirmation to overwrite.
+     *
+     * @param $input
+     * @param $output
+     * @param $outputFile
+     * @return bool
+     */
+    protected function confirmOverwrite($input, $output, $outputFile)
+    {
+        $output->writeln('');
+
+        $helper = $this->getHelper('question');
+        $question = new ConfirmationQuestion('<comment>Outputfile '.$outputFile.' already exists. Do you want to overwrite it? (y/n) </comment>', false);
+
+        if (! $helper->ask($input, $output, $question)) {
+            return false;
+        }
+
+        return true;
     }
 }
