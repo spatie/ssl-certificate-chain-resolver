@@ -29,6 +29,8 @@ You can also pass the name of the file of the outputfile as the second argument:
 ssl-certificate-chain-resolver cert.crt your-output-file.crt
 ```
 
+If the outputfile already exists, you will be asked if it's ok to overwrite it.
+
 ## Updating
 
 You can update <b>ssl-certificate-chain-resolver</b> to the latest version by running:
