@@ -43,8 +43,6 @@ You can run them yourself with ```vendor/bin/codecept run```
 
 ## Background: the trust chain
 
-If you want to know more about the trust chain, read on...
-
 All operating systems contain a set of default trusted root certificates. But CAs usually don't use their root certificate to sign customer certificates. Instead of they use so called intermediate certificates, because they can be rotated more frequently.
 
 A certificate can contain a special Authority Information Access extension (RFC-3280) with URL to issuer's certificate. Most browsers can use the AIA extension to download missing intermediate certificate to complete the certificate chain. This is the exact meaning of the Extra download message. But some clients (mobile browsers, OpenSSL) don't support this extension, so they report such certificate as untrusted.
