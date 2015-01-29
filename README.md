@@ -51,7 +51,7 @@ You can run them yourself with ```vendor/bin/codecept run```
 - Matthias De Winter
 - [Freek Van der Herten](https://murze.be)
 
-This package was inspired by [cert-chain-resolver](https://github.com/zakjan/cert-chain-resolver/) written by [Jan Žák](http://www.zakjan.cz/). Some text from this package is copied from the readme of his repo.
+This package was inspired by [cert-chain-resolver](https://github.com/zakjan/cert-chain-resolver/) written by [Jan Žák](http://www.zakjan.cz/). Some text, mainly the background about the trust chain, was copied from the readme of his repo.
 
 
 ## Background: the trust chain
