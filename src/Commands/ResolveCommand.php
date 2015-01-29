@@ -50,7 +50,7 @@ class ResolveCommand extends Command
 
         $this->guardAgainstInvalidInput($certificateFile);
 
-        if (! file_exists($outputFile)) {
+        if (file_exists($outputFile)) {
             $confirmation = $this->confirmOverwrite($input, $output, $outputFile);
 
             if (! $confirmation) {

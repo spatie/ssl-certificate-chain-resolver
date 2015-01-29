@@ -9,7 +9,7 @@ if(file_exists($outputResult))
     unlink($outputResult);
 }
 
-$command = "php ./ssl-certificate-chain-resolver resolve tests/_data/google.crt ".$outputFile;
+$command = "php ./ssl-certificate-chain-resolver resolve tests/_data/google.crt ".$outputResult;
 
 $I = new FunctionalTester($scenario);
 $I->wantTo('compare input and output.');
