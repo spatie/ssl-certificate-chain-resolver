@@ -26,3 +26,5 @@ $output = str_replace("\r", "", $output);
 
 PHPUnit_Framework_Assert::assertEquals($expected, $output);
 
+
+
