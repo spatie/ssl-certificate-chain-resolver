@@ -1,10 +1,8 @@
-WORK IN PROGRESS
-
 # SSL Certificate Chain Resolver
 [![Build Status](https://travis-ci.org/freekmurze/ssl-certificate-chain-resolver.svg?branch=master)](https://travis-ci.org/freekmurze/ssl-certificate-chain-resolver)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/2912a3ab-51a8-4e07-9bad-fd94a833f989/mini.png)](https://insight.sensiolabs.com/projects/2912a3ab-51a8-4e07-9bad-fd94a833f989)[![Latest Stable Version](https://poser.pugx.org/spatie/ssl-certificate-chain-resolver/version.png)](https://packagist.org/packages/spatie/ssl-certificate-chain-resolver)[![License](https://poser.pugx.org/spatie/ssl-certificate-chain-resolver/license.png)](https://packagist.org/packages/spatie/ssl-certificate-chain-resolver)
 
-This tool can help you fix the *incomplete certificate chain* issue, also reported as *Extra download* by [Qualys SSL Server Test](https://www.ssllabs.com/ssltest/).
+This tool can help you fix the incomplete certificate chain issue, also reported as *Extra download* by [Qualys SSL Server Test](https://www.ssllabs.com/ssltest/).
 
 ## Installation
 
@@ -16,30 +14,7 @@ This package can be installed using composer by running this command.
 
 ## Usage
 
-The resolver has one required argument, <b>the certificate that needs to be resolved.</b>
-
-And one optional argument, <b>what the resolved certificate should be saved as.</b>
-
-So, the resolver can be started with the command:
-
-```bash
-    ssl-certificate-chain-resolver certificate.crt
-```
-
-*Where certificate.crt is the certificate that needs to be resolved.*
-
-And if you choose to use the optional argument:
-
-```bash
-    ssl-certificate-chain-resolver certificate.crt resolved.crt
-```
-
-If the optional argument is not specified, the resolved certificate will be saved as <b>trustChain.crt</b>.
-
-
-### Example
-
-Let's assume you have an incomplete certificate  called ```cert.crt```. To generate the a file containing the certificate and the entire trust chain, you can use this command
+Let's assume you have an incomplete certificate  called ```cert.crt```. To generate the a file containing the certificate and the entire trust chain, you can use this command:
 
 ```bash
 ssl-certificate-chain-resolver cert.crt
@@ -47,7 +22,10 @@ ssl-certificate-chain-resolver cert.crt
 
 A file containing the certificate and the entire trust chain will be saved as ```certificate-including-trust-chain.crt```
 
-You can also pass the name of the file w
+You can also pass the name of the file of the outputfile as the second argument:
+```bash
+ssl-certificate-chain-resolver cert.crt your-output-file.crt
+```
 
 ## Updating
 
@@ -57,16 +35,13 @@ You can update <b>ssl-certificate-chain-resolver</b> to the latest version by ru
     composer global update spatie/ssl-certificate-chain-resolver
 ```
 
-## Testing
+## Tests
 
-ssl-certificate-chain-resolver uses <b>Codeception</b> for testing.
-Both functional-and unit-testing are currently being used.
+Functional and unit tests are included with the package.
 
-The functional test [CertificateCept.php](tests/functional/CertificateCept.php) simply checks if the command is able to fire and if the returned file has the correct contents.
+You can run them yourself with ```vendor/bin/codecept run```
 
-The unit test [CertificateTest.php](test/unit/CertificateTest.php) checks if the resolver correctly fetches the content of the original certificate and if the correct values are extracted, *parentCertificate, issuer DN and parent URL*.
-
-## About the trust chain
+## Background: the trust chain
 
 If you want to know more about the trust chain, read on...
 
