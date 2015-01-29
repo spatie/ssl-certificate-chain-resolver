@@ -11,7 +11,7 @@ This tool can help you fix the [incomplete certificate chain issue](#background-
 This package can be installed using composer by running this command.
 
 ```bash
-    composer global require spatie/ssl-certificate-chain-resolver
+composer global require spatie/ssl-certificate-chain-resolver
 ```
 
 ## Usage
@@ -36,7 +36,7 @@ If the outputfile already exists, you will be asked if it's ok to overwrite it.
 You can update <b>ssl-certificate-chain-resolver</b> to the latest version by running:
 
 ```bash
-    composer global update spatie/ssl-certificate-chain-resolver
+composer global update spatie/ssl-certificate-chain-resolver
 ```
 
 ## Testing
