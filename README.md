@@ -4,6 +4,8 @@
 
 This tool can help you fix the [incomplete certificate chain issue](#background-the-trust-chain), also reported as *Extra download* by [Qualys SSL Server Test](https://www.ssllabs.com/ssltest/).
 
+![Incomplete Chain](images/incomplete-chain.png)
+
 ## Installation
 
 This package can be installed using composer by running this command.
@@ -47,10 +49,7 @@ All operating systems contain a set of default trusted root certificates. But Ce
 
 A certificate can contain a special Authority Information Access extension (RFC-3280) with URL to issuer's certificate. Most browsers can use the AIA extension to download missing intermediate certificate to complete the certificate chain. This is the exact meaning of the Extra download message. But some clients, mostly mobile browsers, don't support this extension, so they report such certificate as untrusted.
 
-
-![Incomplete Chain](images/incomplete-chain.png)
-
-It also gives you 'untrusted'-warnings like this, since the browser thinks you are on an insecure connection.
+This results in 'untrusted'-warnings like this, since the browser thinks you are on an insecure connection.
 
 ![Untrusted Warning](images/untrusted.png)
 
