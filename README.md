@@ -45,23 +45,17 @@ You can run them yourself with ```vendor/bin/codecept run```
 
 All operating systems contain a set of default trusted root certificates. But Certificate Authorities usually don't use their root certificate to sign customer certificates. Instead of they use so called intermediate certificates, because they can be rotated more frequently.
 
-A certificate can contain a special Authority Information Access extension (RFC-3280) with URL to issuer's certificate. Most browsers can use the AIA extension to download missing intermediate certificate to complete the certificate chain. This is the exact meaning of the Extra download message. But some clients (mobile browsers, OpenSSL) don't support this extension, so they report such certificate as untrusted.
+A certificate can contain a special Authority Information Access extension (RFC-3280) with URL to issuer's certificate. Most browsers can use the AIA extension to download missing intermediate certificate to complete the certificate chain. This is the exact meaning of the Extra download message. But some clients, mostly mobile browsers, don't support this extension, so they report such certificate as untrusted.
 
-A server should always send a complete chain, which means concatenated all certificates from the certificate to the trusted root certificate (exclusive, in this order), to prevent such issues. Note, the trusted root certificate should not be there, as it is already included in the system’s root certificate store.
-
-You should be able to fetch intermediate certificates from the issuer and concat them together by yourself, this tool helps you automatize it by looping over certificate's AIA extension field.
-
-When installing a SSL certificate on a server you should install all intermediate certificates as wel.
-
-Certificate authorities don't use their root certificate to sign customer certificates, they use something called intermediate certificates.
-
-Some clients, mostly mobile browsers, still dont support the AIA extension for downloading these intermediate certificates.
-This results in an incomplete certificate chain.
 
 ![Incomplete Chain](images/incomplete-chain.png)
 
 It also gives you 'untrusted'-warnings like this, since the browser thinks you are on an insecure connection.
 
 ![Untrusted Warning](images/untrusted.png)
+
+A server should always send a complete chain, which means concatenated all certificates from the certificate to the trusted root certificate (exclusive, in this order), to prevent such issues.  So when installing a SSL certificate on a server you should install all intermediate certificates as wel. You should be able to fetch intermediate certificates from the issuer and concat them together by yourself.
+
+This tool helps you automatize that boring task by looping over certificate's AIA extension field.
 
 
