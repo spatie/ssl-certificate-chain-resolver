@@ -2,6 +2,7 @@
 namespace Spatie\Certificate;
 
 use File_X509;
+use Exception;
 
 class Certificate
 {
@@ -13,6 +14,8 @@ class Certificate
      */
     public function __construct($contents)
     {
+        $this->guardAgainstInvalidContents($contents);
+
         $this->contents = $contents;
     }
 
@@ -72,5 +75,20 @@ class Certificate
         $x509->loadX509($this->contents);
 
         return $x509->getIssuerDN(true);
+    }
+
+    /**
+     * Check if inputfile is correct
+     *
+     * @param $contents
+     * @throws Exception
+     */
+    protected function guardAgainstInvalidContents($contents)
+    {
+        $x509 = new File_X509();
+
+        if (!$x509->loadX509($contents)) {
+            throw new Exception('Invalid inputfile given.');
+        }
     }
 }
