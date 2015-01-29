@@ -24,7 +24,7 @@
         }
     },
     "bin": [
-        "mixed-content-scanner"
+        "ssl-certificate-chain-resolver"
     ],
     "minimum-stability": "stable"
 }
