@@ -39,11 +39,20 @@ You can update <b>ssl-certificate-chain-resolver</b> to the latest version by ru
     composer global update spatie/ssl-certificate-chain-resolver
 ```
 
-## Tests
+## Testing
 
 Functional and unit tests are included with the package.
 
 You can run them yourself with ```vendor/bin/codecept run```
+
+
+## Credits
+
+- Matthias De Winter
+- [Freek Van der Herten](https://murze.be)
+
+This package was inspired by [cert-chain-resolver](https://github.com/zakjan/cert-chain-resolver/) written by [Jan Žák](http://www.zakjan.cz/). Some text from this repo is copied from the readme of his package.
+
 
 ## Background: the trust chain
 
@@ -58,5 +67,9 @@ This results in 'untrusted'-warnings like this, since the browser thinks you are
 A server should always send a complete chain, which means concatenated all certificates from the certificate to the trusted root certificate (exclusive, in this order), to prevent such issues.  So when installing a SSL certificate on a server you should install all intermediate certificates as wel. You should be able to fetch intermediate certificates from the issuer and concat them together by yourself.
 
 This tool helps you automatize that boring task by looping over certificate's AIA extension field.
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
 
 
