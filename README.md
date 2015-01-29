@@ -48,8 +48,8 @@ You can run them yourself with ```vendor/bin/codecept run```
 
 ## Credits
 
-- Matthias De Winter
-- [Freek Van der Herten](https://murze.be)
+- [Freek Van der Herten](https:/murze.be)
+- [All Contributors](https://github.com/freekmurze/ssl-certificate-chain-resolver/contributors)
 
 This package was inspired by [cert-chain-resolver](https://github.com/zakjan/cert-chain-resolver/) written by [Jan Žák](http://www.zakjan.cz/). Some text, mainly the background about the trust chain, was copied from the readme of his repo.
 
