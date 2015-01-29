@@ -19,14 +19,14 @@ This package can be installed using composer by running this command.
 Let's assume you have an incomplete certificate  called ```cert.crt```. To generate the a file containing the certificate and the entire trust chain, you can use this command:
 
 ```bash
-ssl-certificate-chain-resolver cert.crt
+ssl-certificate-chain-resolver resolve cert.crt
 ```
 
 A file containing the certificate and the entire trust chain will be saved as ```certificate-including-trust-chain.crt```
 
 You can also pass the name of the file of the outputfile as the second argument:
 ```bash
-ssl-certificate-chain-resolver cert.crt your-output-file.crt
+ssl-certificate-chain-resolver resolve cert.crt your-output-file.crt
 ```
 
 If the outputfile already exists, you will be asked if it's ok to overwrite it.
