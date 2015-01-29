@@ -12,7 +12,7 @@ if(file_exists($outputResult))
 $command = "php ./ssl-certificate-chain-resolver resolve tests/_data/google.crt ".$outputResult;
 
 $I = new FunctionalTester($scenario);
-$I->wantTo('compare input and output.');
+$I->wantTo('download intermediate certificates and write them to a file');
 
 $I->runShellCommand($command);
 

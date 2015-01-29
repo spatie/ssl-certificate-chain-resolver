@@ -16,12 +16,8 @@ else
     require __DIR__.'/../../autoload.php';
 }
 
-$application = new Application('SSL certificate chain resolver', '0.1.0');
+$application = new Application('SSL certificate chain resolver', '1.0.0');
 
-$resolveCommand = new ResolveCommand();
-
-$application->add($resolveCommand);
-
-$application->setDefaultCommand($resolveCommand->getName());
+$application->add(new ResolveCommand());
 
 $application->run();

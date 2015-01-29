@@ -23,7 +23,7 @@ class ResolveCommand extends Command
     protected function configure()
     {
         $this->setName('resolve')
-            ->setDescription('Resolve the trust chain.')
+            ->setDescription('Download all intermediate certificates in the trust chain.')
             ->addArgument('certificate', InputArgument::REQUIRED)
             ->addArgument('outputFile', InputArgument::OPTIONAL);
     }
