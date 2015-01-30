@@ -3,7 +3,6 @@
 <?php
 // application.php
 
-use Acme\Console\Command\GreetCommand;
 use Spatie\Commands\ResolveCommand;
 use Symfony\Component\Console\Application;
 
@@ -16,7 +15,7 @@ else
     require __DIR__.'/../../autoload.php';
 }
 
-$application = new Application('SSL certificate chain resolver', '1.0.0');
+$application = new Application('SSL certificate chain resolver', '1.0.2');
 
 $application->add(new ResolveCommand());
 
