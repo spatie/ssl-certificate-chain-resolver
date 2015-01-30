@@ -6,12 +6,11 @@ use Exception;
 
 class Certificate
 {
-
+    /**
+     * @param string The contents of the certificate
+     */
     protected $contents;
 
-    /**
-     * @param string $contents
-     */
     public function __construct($contents)
     {
         $this->guardAgainstInvalidContents($contents);
