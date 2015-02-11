@@ -2,7 +2,13 @@
 [![Build Status](https://travis-ci.org/freekmurze/ssl-certificate-chain-resolver.svg?branch=master)](https://travis-ci.org/freekmurze/ssl-certificate-chain-resolver)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/2912a3ab-51a8-4e07-9bad-fd94a833f989/mini.png)](https://insight.sensiolabs.com/projects/2912a3ab-51a8-4e07-9bad-fd94a833f989) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/freekmurze/ssl-certificate-chain-resolver/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/freekmurze/ssl-certificate-chain-resolver/?branch=master) [![Latest Stable Version](https://poser.pugx.org/spatie/ssl-certificate-chain-resolver/version.png)](https://packagist.org/packages/spatie/ssl-certificate-chain-resolver) [![License](https://poser.pugx.org/spatie/ssl-certificate-chain-resolver/license.png)](https://packagist.org/packages/spatie/ssl-certificate-chain-resolver)
 
+All operating systems contain a set of default trusted root certificates. But Certificate Authorities usually don't use their root certificate to sign customer certificates. They use so called intermediate certificates instead, because these can be rotated more frequently.
+
+If not all intermediate certificates are installed on your server, some clients —mostly mobile browsers— will think you are on an insecure connection.
+
 This tool can help you fix the [incomplete certificate chain issue](#background-the-trust-chain), also reported as *Extra download* by [Qualys SSL Server Test](https://www.ssllabs.com/ssltest/).
+
+If you need an online tool to solve this issue, take a look at [certificatechain.io](https://certificatechain.io)
 
 ![Incomplete Chain](images/incomplete-chain.png)
 
