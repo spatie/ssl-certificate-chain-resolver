@@ -10,8 +10,6 @@ This tool can help you fix the [incomplete certificate chain issue](#background-
 
 If you need an online tool to solve this issue, take a look at [certificatechain.io](https://certificatechain.io)
 
-![Incomplete Chain](images/incomplete-chain.png)
-
 ## Installation
 
 This package can be installed using composer by running this command.
