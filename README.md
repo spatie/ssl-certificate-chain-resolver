@@ -1,6 +1,10 @@
 # SSL Certificate Chain Resolver
-[![Build Status](https://travis-ci.org/freekmurze/ssl-certificate-chain-resolver.svg?branch=master)](https://travis-ci.org/freekmurze/ssl-certificate-chain-resolver)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/2912a3ab-51a8-4e07-9bad-fd94a833f989/mini.png)](https://insight.sensiolabs.com/projects/2912a3ab-51a8-4e07-9bad-fd94a833f989) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/freekmurze/ssl-certificate-chain-resolver/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/freekmurze/ssl-certificate-chain-resolver/?branch=master) [![Latest Stable Version](https://poser.pugx.org/spatie/ssl-certificate-chain-resolver/version.png)](https://packagist.org/packages/spatie/ssl-certificate-chain-resolver) [![License](https://poser.pugx.org/spatie/ssl-certificate-chain-resolver/license.png)](https://packagist.org/packages/spatie/ssl-certificate-chain-resolver)
+[![Latest Version](https://img.shields.io/github/release/freekmurze/ssl-certificate-chain-resolver.svg?style=flat-square)](https://github.com/freekmurze/ssl-certificate-chain-resolver/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://img.shields.io/travis/freekmurze/ssl-certificate-chain-resolver/master.svg?style=flat-square)](https://travis-ci.org/freekmurze/ssl-certificate-chain-resolver)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/2912a3ab-51a8-4e07-9bad-fd94a833f989.svg)](https://insight.sensiolabs.com/projects/2912a3ab-51a8-4e07-9bad-fd94a833f989)
+[![Quality Score](https://img.shields.io/scrutinizer/g/freekmurze/ssl-certificate-chain-resolver.svg?style=flat-square)](https://scrutinizer-ci.com/g/freekmurze/ssl-certificate-chain-resolver)
+[![Total Downloads](https://img.shields.io/packagist/dt/spatie/ssl-certificate-chain-resolver.svg?style=flat-square)](https://packagist.org/packages/spatie/ssl-certificate-chain-resolver)
 
 All operating systems contain a set of default trusted root certificates. But Certificate Authorities usually don't use their root certificate to sign customer certificates. They use so called intermediate certificates instead, because these can be rotated more frequently.
 
