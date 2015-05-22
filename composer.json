@@ -1,6 +1,7 @@
 {
     "name": "spatie/ssl-certificate-chain-resolver",
     "description": "SSL certificate chain resolver",
+    "homepage": "https://github.com/spatie/ssl-certificate-chain-resolver",
     "license": "MIT",
     "authors": [
         {
