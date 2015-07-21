@@ -14,6 +14,8 @@ This tool can help you fix the [incomplete certificate chain issue](#background-
 
 If you need an online tool to solve this issue, take a look at [certificatechain.io](https://certificatechain.io)
 
+Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
+
 ## Installation
 
 This package can be installed using composer by running this command.
@@ -75,6 +77,9 @@ This results in 'untrusted'-warnings like this, since the browser thinks you are
 A server should always send a complete chain, which means concatenated all certificates from the certificate to the trusted root certificate (exclusive, in this order), to prevent such issues.  So when installing a SSL certificate on a server you should install all intermediate certificates as wel. You should be able to fetch intermediate certificates from the issuer and concat them together by yourself.
 
 This tool helps you automatize that boring task by looping over certificate's AIA extension field.
+
+## About Spatie
+Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
 ## License
 
