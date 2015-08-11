@@ -14,7 +14,7 @@ This tool can help you fix the [incomplete certificate chain issue](#background-
 
 If you need an online tool to solve this issue, take a look at [certificatechain.io](https://certificatechain.io)
 
-Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
+Spatie is a webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
 ## Installation
 
@@ -79,7 +79,7 @@ A server should always send a complete chain, which means concatenated all certi
 This tool helps you automatize that boring task by looping over certificate's AIA extension field.
 
 ## About Spatie
-Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
+Spatie is a webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
 ## License
 
