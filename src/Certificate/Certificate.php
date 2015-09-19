@@ -19,7 +19,7 @@ class Certificate
     }
 
     /**
-     * Get the URL of the parent certificate
+     * Get the URL of the parent certificate.
      *
      * @return string
      */
@@ -42,7 +42,7 @@ class Certificate
     }
 
     /**
-     * Does this certificate have a parent
+     * Does this certificate have a parent.
      *
      * @return bool
      */
@@ -52,7 +52,7 @@ class Certificate
     }
 
     /**
-     * Get the contents of the certificate
+     * Get the contents of the certificate.
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class Certificate
     }
 
     /**
-     * Get the issuer DN of the certificate
+     * Get the issuer DN of the certificate.
      *
      * @return string
      */
@@ -77,9 +77,10 @@ class Certificate
     }
 
     /**
-     * Check if inputfile is correct
+     * Check if inputfile is correct.
      *
      * @param $contents
+     *
      * @throws Exception
      */
     protected function guardAgainstInvalidContents($contents)

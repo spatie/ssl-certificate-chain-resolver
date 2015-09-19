@@ -12,13 +12,10 @@ use Symfony\Component\Console\Question\ConfirmationQuestion;
 
 class ResolveCommand extends Command
 {
-
     protected $httpClient;
 
     /**
      * Configure the command options.
-     *
-     * @return void
      */
     protected function configure()
     {
@@ -37,9 +34,11 @@ class ResolveCommand extends Command
     /**
      * Execute the command.
      *
-     * @param  InputInterface  $input
-     * @param  OutputInterface $output
+     * @param InputInterface  $input
+     * @param OutputInterface $output
+     *
      * @return int|null|void
+     *
      * @throws Exception
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -69,11 +68,13 @@ class ResolveCommand extends Command
     }
 
     /**
-     * Get a string with the contents of the given certificatefile and it's entire trust chain
+     * Get a string with the contents of the given certificatefile and it's entire trust chain.
      *
-     * @param  string          $certificateFile
-     * @param  OutputInterface $output
+     * @param string          $certificateFile
+     * @param OutputInterface $output
+     *
      * @return String
+     *
      * @throws Exception
      */
     protected function getCertificateChain($certificateFile, OutputInterface $output)
@@ -107,9 +108,10 @@ class ResolveCommand extends Command
     }
 
     /**
-     * Validate the inputfile
+     * Validate the inputfile.
      *
      * @param $certificateFile
+     *
      * @throws Exception
      */
     protected function guardAgainstInvalidInput($certificateFile)
@@ -126,6 +128,7 @@ class ResolveCommand extends Command
      * @param $input
      * @param $output
      * @param $outputFile
+     *
      * @return bool
      */
     protected function confirmOverwrite($input, $output, $outputFile)
