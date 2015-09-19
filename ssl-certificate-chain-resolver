@@ -1,7 +1,6 @@
 #! /usr/bin/env php
 
 <?php
-// application.php
 
 use Spatie\Commands\ResolveCommand;
 use Symfony\Component\Console\Application;
