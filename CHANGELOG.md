@@ -2,11 +2,14 @@
 
 All notable changes to ssl-certificate-chain-resolver will be documented in this file.
 
+## 1.0.3
+Fixed: Ignore codecept build files
+
 ## 1.0.2
-Remove all windows line breaks
+Fixed: Remove all windows line breaks
 
 ## 1.0.1
-Added CertificateFactory
+Fixed: Added CertificateFactory
 
 ## 1.0.0
 Initial release
