@@ -12,8 +12,6 @@ class CertificateFactoryTest extends \Codeception\TestCase\Test
      */
     protected $tester;
 
-
-
     // tests
     public function testCertificateFactory()
     {
@@ -35,10 +33,9 @@ ZS5jb20vcmVwb3NpdG9yeS9UaGF3dGVfU0dDX0NBLmNydDANBgkqhkiG9w0BAQUF
 AAOBgQAhrNWuyjSJWsKrUtKyNGadeqvu5nzVfsJcKLt0AMkQH0IT/GmKHiSgAgDp
 ulvKGQSy068Bsn5fFNum21K5mvMSf3yinDtvmX3qUA12IxL/92ZzKbeVCq3Yi7Le
 IOkKcGQRCMha8X2e7GmlpdWC1ycenlbN0nbVeSv3JUMcafC4+Q==
------END CERTIFICATE-----' . PHP_EOL;
+-----END CERTIFICATE-----'.PHP_EOL;
 
         $certificate = CertificateFactory::create($certificateContents);
         $this->assertInstanceOf('Spatie\Certificate\Certificate', $certificate);
     }
-
 }

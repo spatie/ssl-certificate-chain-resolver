@@ -4,8 +4,7 @@ $outputPath = 'tests/_output/';
 $outputFile = 'trustChain.crt';
 $outputResult = $outputPath.$outputFile;
 
-if(file_exists($outputResult))
-{
+if (file_exists($outputResult)) {
     unlink($outputResult);
 }
 
@@ -25,4 +24,3 @@ $expected = str_replace("\r", "", $expected);
 $output = str_replace("\r", "", $output);
 
 PHPUnit_Framework_Assert::assertEquals($expected, $output);
-

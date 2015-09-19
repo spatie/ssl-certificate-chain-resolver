@@ -14,8 +14,7 @@ class InvalidCertificateTest extends \Codeception\TestCase\Test
 
     public function testInvalidCertificate()
     {
-
-        $this->specify('It throws the correct exception if the given inputfile is invalid.', function() {
+        $this->specify('It throws the correct exception if the given inputfile is invalid.', function () {
             $this->setExpectedException('Exception', 'Invalid inputfile given.');
             new Certificate('Invalid Content fluff fluff fluff');
         });
