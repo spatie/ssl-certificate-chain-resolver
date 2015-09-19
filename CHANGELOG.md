@@ -2,7 +2,7 @@
 
 All notable changes to ssl-certificate-chain-resolver will be documented in this file.
 
-## 1.0.3
+## 1.0.5
 Fixed: Ignore codecept build files
 
 ## 1.0.2
