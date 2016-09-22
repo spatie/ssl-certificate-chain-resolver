@@ -1,4 +1,5 @@
 <?php
+
 namespace Spatie\Certificate;
 
 use Exception;
@@ -48,7 +49,7 @@ class Certificate
      */
     public function hasParentInTrustChain()
     {
-        return (! $this->getParentCertificateURL() == '');
+        return !$this->getParentCertificateURL() == '';
     }
 
     /**
