@@ -1,8 +1,8 @@
 <?php
 namespace Spatie\Certificate;
 
-use File_X509;
 use Exception;
+use phpseclib\File\X509;
 
 class Certificate
 {
@@ -25,7 +25,7 @@ class Certificate
      */
     public function getParentCertificateURL()
     {
-        $x509 = new File_X509();
+        $x509 = new X509();
         $certProperties = $x509->loadX509($this->contents);
 
         foreach ($certProperties['tbsCertificate']['extensions'] as $extension) {
@@ -58,7 +58,7 @@ class Certificate
      */
     public function getContents()
     {
-        $x509 = new File_X509();
+        $x509 = new X509();
 
         return $x509->saveX509($x509->loadX509($this->contents)).PHP_EOL;
     }
@@ -70,10 +70,10 @@ class Certificate
      */
     public function getIssuerDN()
     {
-        $x509 = new File_X509();
+        $x509 = new X509();
         $x509->loadX509($this->contents);
 
-        return $x509->getIssuerDN(true);
+        return $x509->getIssuerDN(X509::DN_STRING);
     }
 
     /**
@@ -85,7 +85,7 @@ class Certificate
      */
     protected function guardAgainstInvalidContents($contents)
     {
-        $x509 = new File_X509();
+        $x509 = new X509();
 
         if (!$x509->loadX509($contents)) {
             throw new Exception('Invalid inputfile given.');
