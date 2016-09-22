@@ -37,19 +37,19 @@ IOkKcGQRCMha8X2e7GmlpdWC1ycenlbN0nbVeSv3JUMcafC4+Q==
 
         $certificate = new Certificate($certificateContents);
 
-        $this->specify("it can get the contents of a certificate", function () use ($certificate, $certificateContents) {
-            $this->assertSame(str_replace("\r", "", $certificate->getContents()), str_replace("\r", "", $certificateContents));
+        $this->specify('it can get the contents of a certificate', function () use ($certificate, $certificateContents) {
+            $this->assertSame(str_replace("\r", '', $certificate->getContents()), str_replace("\r", '', $certificateContents));
         });
 
-        $this->specify("it can determine if the certificate has a parent", function () use ($certificate, $certificateContents) {
+        $this->specify('it can determine if the certificate has a parent', function () use ($certificate, $certificateContents) {
             $this->assertEquals($certificate->hasParentInTrustChain(), true);
         });
 
-        $this->specify("it can determine the issuer DN of a certificate", function () use ($certificate, $certificateContents) {
+        $this->specify('it can determine the issuer DN of a certificate', function () use ($certificate, $certificateContents) {
             $this->assertEquals($certificate->getIssuerDN(), 'C=ZA, O=Thawte Consulting (Pty) Ltd., CN=Thawte SGC CA');
         });
 
-        $this->specify("it can determine the URL of the parent certificate", function () use ($certificate, $certificateContents) {
+        $this->specify('it can determine the URL of the parent certificate', function () use ($certificate, $certificateContents) {
             $this->assertEquals($certificate->getParentCertificateURL(), 'http://www.thawte.com/repository/Thawte_SGC_CA.crt');
         });
     }
