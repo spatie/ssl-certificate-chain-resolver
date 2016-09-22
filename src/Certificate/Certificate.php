@@ -1,4 +1,5 @@
 <?php
+
 namespace Spatie\Certificate;
 
 use Exception;
@@ -48,7 +49,7 @@ class Certificate
      */
     public function hasParentInTrustChain()
     {
-        return (! $this->getParentCertificateURL() == '');
+        return ! $this->getParentCertificateURL() == '';
     }
 
     /**
@@ -87,7 +88,7 @@ class Certificate
     {
         $x509 = new X509();
 
-        if (!$x509->loadX509($contents)) {
+        if (! $x509->loadX509($contents)) {
             throw new Exception('Invalid inputfile given.');
         }
     }

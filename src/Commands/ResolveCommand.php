@@ -1,4 +1,5 @@
 <?php
+
 namespace Spatie\Commands;
 
 use Exception;
@@ -73,7 +74,7 @@ class ResolveCommand extends Command
      * @param string          $certificateFile
      * @param OutputInterface $output
      *
-     * @return String
+     * @return string
      *
      * @throws Exception
      */
