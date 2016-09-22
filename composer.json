@@ -1,6 +1,13 @@
 {
     "name": "spatie/ssl-certificate-chain-resolver",
     "description": "SSL certificate chain resolver",
+    "keywords": [
+        "ssl-certificate-chain-resolver",
+        "ssl",
+        "certificate",
+        "chain",
+        "https"
+    ],
     "homepage": "https://github.com/spatie/ssl-certificate-chain-resolver",
     "license": "MIT",
     "authors": [
@@ -10,10 +17,9 @@
         }
     ],
     "require": {
-        "symfony/console": "~3.1",
+        "guzzlehttp/guzzle": "~5.3.1|~6.0",
         "phpseclib/phpseclib": "~2.0",
-        "guzzlehttp/guzzle": "~5.3.1|~6.0"
-
+        "symfony/console": "~3.1"
     },
     "require-dev": {
         "codeception/codeception": "~2.0",
@@ -27,5 +33,8 @@
     "bin": [
         "ssl-certificate-chain-resolver"
     ],
+    "config": {
+        "sort-packages": true
+    },
     "minimum-stability": "stable"
 }
