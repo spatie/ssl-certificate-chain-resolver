@@ -53,7 +53,7 @@ class ResolveCommand extends Command
             $confirmation = $this->confirmOverwrite($input, $output, $outputFile);
 
             if (! $confirmation) {
-                $output->writeln("<info>Cancelling...</info>");
+                $output->writeln('<info>Cancelling...</info>');
 
                 return true;
             }
