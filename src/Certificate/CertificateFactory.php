@@ -1,4 +1,5 @@
 <?php
+
 namespace Spatie\Certificate;
 
 class CertificateFactory
