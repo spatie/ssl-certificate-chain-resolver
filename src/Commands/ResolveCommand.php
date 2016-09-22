@@ -1,4 +1,5 @@
 <?php
+
 namespace Spatie\Commands;
 
 use Exception;
@@ -37,9 +38,9 @@ class ResolveCommand extends Command
      * @param InputInterface  $input
      * @param OutputInterface $output
      *
-     * @return int|null|void
-     *
      * @throws Exception
+     *
+     * @return int|null|void
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -52,7 +53,7 @@ class ResolveCommand extends Command
         if (file_exists($outputFile)) {
             $confirmation = $this->confirmOverwrite($input, $output, $outputFile);
 
-            if (! $confirmation) {
+            if (!$confirmation) {
                 $output->writeln('<info>Cancelling...</info>');
 
                 return true;
@@ -73,9 +74,9 @@ class ResolveCommand extends Command
      * @param string          $certificateFile
      * @param OutputInterface $output
      *
-     * @return String
-     *
      * @throws Exception
+     *
+     * @return string
      */
     protected function getCertificateChain($certificateFile, OutputInterface $output)
     {
@@ -116,7 +117,7 @@ class ResolveCommand extends Command
      */
     protected function guardAgainstInvalidInput($certificateFile)
     {
-        if (! file_exists($certificateFile)) {
+        if (!file_exists($certificateFile)) {
             throw new Exception('Inputfile'.$certificateFile.' does not exists');
         }
     }
@@ -138,7 +139,7 @@ class ResolveCommand extends Command
         $helper = $this->getHelper('question');
         $question = new ConfirmationQuestion('<comment>Outputfile '.$outputFile.' already exists. Do you want to overwrite it? (y/n) </comment>', false);
 
-        if (! $helper->ask($input, $output, $question)) {
+        if (!$helper->ask($input, $output, $question)) {
             return false;
         }
 
