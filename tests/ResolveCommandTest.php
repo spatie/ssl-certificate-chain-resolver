@@ -1,12 +1,9 @@
 <?php
 
-namespace Spatie\CertificateChain;
+namespace Spatie\CertificateChain\Test;
 
-use PHPUnit_Framework_TestCase;
-
-class ResolveCommandTest extends PHPUnit_Framework_TestCase
+class ResolveCommandTest extends TestCase
 {
-    
     /** @test */
     public function it_can_resolve_a_certificate_chain()
     {
@@ -14,24 +11,12 @@ class ResolveCommandTest extends PHPUnit_Framework_TestCase
 
         $outputFile = __DIR__ . '/temp/certificateChain.crt';
 
-        unlink($outputFile);
+        $this->unlinkIfExist($outputFile);
 
         exec("php ./ssl-certificate-chain-resolver resolve {$inputFile} {$outputFile}");
 
         $certificateChain = __DIR__ . '/fixtures/google/certificateChain.crt';
 
         $this->assertFileContentsEqual($certificateChain, $outputFile);
-    }
-
-    protected function assertFileContentsEqual($fileA, $fileB)
-    {
-        $this->assertEquals(
-            $this->sanitize(file_get_contents($fileA)),
-            $this->sanitize(file_get_contents($fileB))
-        );
-    }
-
-    protected function sanitize(string $text) {
-       return str_replace("\r", '', $text);
     }
 }

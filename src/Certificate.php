@@ -12,6 +12,17 @@ class Certificate
      */
     protected $contents;
 
+
+    public static function loadFromFile(string $inputFile)
+    {
+        return new static(file_get_contents($inputFile));
+    }
+
+    public static function loadFromUrl(string $url)
+    {
+        return static::loadFromFile($url);
+    }
+
     public function __construct($contents)
     {
         $this->guardAgainstInvalidContents($contents);
@@ -24,7 +35,7 @@ class Certificate
      *
      * @return string
      */
-    public function getParentCertificateURL()
+    public function getParentCertificateUrl()
     {
         $x509 = new X509();
         $certProperties = $x509->loadX509($this->contents);
@@ -42,6 +53,10 @@ class Certificate
         return '';
     }
 
+    public function fetchParentCertificate(): Certificate {
+        return static::loadFromUrl($this->getParentCertificateUrl());
+    }
+
     /**
      * Does this certificate have a parent.
      *
@@ -49,7 +64,7 @@ class Certificate
      */
     public function hasParentInTrustChain()
     {
-        return ! $this->getParentCertificateURL() == '';
+        return ! $this->getParentCertificateUrl() == '';
     }
 
     /**

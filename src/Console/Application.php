@@ -2,7 +2,6 @@
 
 namespace Spatie\CertificateChain\Console;
 
-use Spatie\CertificateChain\ResolveCommand;
 use Symfony\Component\Console\Application as ConsoleApplication;
 
 class Application extends ConsoleApplication

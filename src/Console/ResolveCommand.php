@@ -1,10 +1,11 @@
 <?php
 
-namespace Spatie\CertificateChain;
+namespace Spatie\CertificateChain\Console;
 
 use Exception;
 use GuzzleHttp\Client;
 use Spatie\CertificateChain\Certificate;
+use Spatie\CertificateChain\CertificateChain;
 use Spatie\CertificateChain\Exceptions\CouldNotRunCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -47,67 +48,33 @@ class ResolveCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('<info>Start resolving trust chain...</info>');
+
         $certificateFile = $input->getArgument('certificate');
+
+        if (! file_exists($certificateFile)) {
+            throw CouldNotRunCommand::inputFileDoesNotExist($certificateFile);
+        }
+
         $outputFile = $input->getArgument('outputFile') ?: 'certificate-including-trust-chain.crt';
 
-        $this->guardAgainstInvalidInput($certificateFile);
 
         if (file_exists($outputFile)) {
-            $confirmation = $this->confirmOverwrite($input, $output, $outputFile);
 
-            if (! $confirmation) {
+            if (! $this->confirmOverwrite($input, $output, $outputFile)) {
                 $output->writeln('<info>Cancelling...</info>');
 
                 return true;
             }
         }
 
-        $certificateChain = $this->getCertificateChain($certificateFile, $output);
+        $certificate = Certificate::loadFromFile($certificateFile);
+
+        $certificateChain = CertificateChain::fetchForCertificate($certificate);
 
         file_put_contents($outputFile, $certificateChain);
 
         $output->writeln('<info>Saved trust chain in '.$outputFile.'</info>');
         $output->writeln('<info>All done!</info>');
-    }
-
-    /**
-     * Get a string with the contents of the given certificatefile and it's entire trust chain.
-     *
-     * @param string          $certificateFile
-     * @param OutputInterface $output
-     *
-     * @return string
-     *
-     * @throws Exception
-     */
-    protected function getCertificateChain($certificateFile, OutputInterface $output)
-    {
-        $output->writeln('');
-        $certificateCounter = 1;
-
-        $certificate = new Certificate(file_get_contents($certificateFile));
-        $certificateChain = $certificate->getContents();
-
-        while ($certificate->hasParentInTrustChain()) {
-            $output->writeln('<comment>Adding certificate '.$certificateCounter.'</comment>');
-            $output->writeln('<comment>downloading certificate from URL: '.$certificate->getParentCertificateURL().'</comment>');
-
-            $httpResponse = $this->httpClient->get($certificate->getParentCertificateURL());
-
-            if ($httpResponse->getStatusCode() != 200) {
-                throw new Exception('could not download certifcate at '.$certificate->getParentCertificateURL());
-            }
-
-            $certificate = new Certificate((string) $httpResponse->getBody());
-            $certificateChain .= $certificate->getContents();
-
-            $output->writeln('<comment>added downloaded certificate to trustchain, issuer DN: '.$certificate->getIssuerDN().'</comment>');
-            $output->writeln('');
-
-            $certificateCounter++;
-        }
-
-        return $certificateChain;
     }
 
     /**
