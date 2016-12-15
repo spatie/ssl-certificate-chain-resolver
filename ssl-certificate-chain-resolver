@@ -1,21 +1,13 @@
-#! /usr/bin/env php
+#!/usr/bin/env php
 
 <?php
 
-use Spatie\Commands\ResolveCommand;
-use Symfony\Component\Console\Application;
-
-if (file_exists(__DIR__.'/vendor/autoload.php'))
-{
+if (file_exists(__DIR__.'/vendor/autoload.php')) {
     require __DIR__.'/vendor/autoload.php';
-}
-else
-{
+} else {
     require __DIR__.'/../../autoload.php';
 }
 
-$application = new Application('SSL certificate chain resolver', '1.0.2');
-
-$application->add(new ResolveCommand());
+$application = new Spatie\CertificateChain\Console\Application();
 
 $application->run();

@@ -1,10 +1,11 @@
 <?php
 
-namespace Spatie\Commands;
+namespace Spatie\CertificateChain;
 
 use Exception;
 use GuzzleHttp\Client;
-use Spatie\Certificate\Certificate;
+use Spatie\CertificateChain\Certificate;
+use Spatie\CertificateChain\Exceptions\CouldNotRunCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -29,6 +30,7 @@ class ResolveCommand extends Command
     public function __construct()
     {
         parent::__construct();
+
         $this->httpClient = new Client();
     }
 
@@ -118,7 +120,7 @@ class ResolveCommand extends Command
     protected function guardAgainstInvalidInput($certificateFile)
     {
         if (! file_exists($certificateFile)) {
-            throw new Exception('Inputfile'.$certificateFile.' does not exists');
+            throw CouldNotRunCommand::inputFileDoesNotExist($certificateFile);
         }
     }
 

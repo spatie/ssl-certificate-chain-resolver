@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Certificate;
+namespace Spatie\CertificateChain;
 
 class CertificateFactory
 {

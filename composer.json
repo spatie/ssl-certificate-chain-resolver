@@ -18,16 +18,20 @@
     ],
     "require": {
         "guzzlehttp/guzzle": "~5.3.1|~6.0",
-        "phpseclib/phpseclib": "~2.0",
-        "symfony/console": "~3.1"
+        "phpseclib/phpseclib": "^2.0",
+        "symfony/console": "^3.2"
     },
     "require-dev": {
-        "codeception/codeception": "~2.0",
-        "codeception/specify": "0.4.*"
+        "phpunit/phpunit": "^5.7"
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\": "src"
+            "Spatie\\CertificateChain\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Spatie\\CertificateChain\\Test\\": "tests"
         }
     },
     "bin": [
