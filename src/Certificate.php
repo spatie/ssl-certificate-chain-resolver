@@ -12,7 +12,6 @@ class Certificate
      */
     protected $contents;
 
-
     public static function loadFromFile(string $inputFile)
     {
         return new static(file_get_contents($inputFile));
@@ -53,7 +52,8 @@ class Certificate
         return '';
     }
 
-    public function fetchParentCertificate(): Certificate {
+    public function fetchParentCertificate(): Certificate
+    {
         return static::loadFromUrl($this->getParentCertificateUrl());
     }
 
