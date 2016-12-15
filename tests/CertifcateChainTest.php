@@ -8,7 +8,7 @@ use Spatie\CertificateChain\CertificateChain;
 class CertificateChainTest extends TestCase
 {
     /** @test */
-    public function it_tests()
+    public function it_can_resolve_a_certificate_chain()
     {
         $inputFile = __DIR__ . '/fixtures/google/certificate.crt';
 

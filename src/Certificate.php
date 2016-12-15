@@ -2,8 +2,8 @@
 
 namespace Spatie\CertificateChain;
 
-use Exception;
 use phpseclib\File\X509;
+use Spatie\CertificateChain\Exceptions\CouldNotCreateCertificate;
 
 class Certificate
 {
@@ -12,18 +12,27 @@ class Certificate
      */
     protected $contents;
 
-
+    /**
+     * @param string $inputFile
+     *
+     * @return static
+     */
     public static function loadFromFile(string $inputFile)
     {
         return new static(file_get_contents($inputFile));
     }
 
+    /**
+     * @param string $url
+     *
+     * @return static
+     */
     public static function loadFromUrl(string $url)
     {
         return static::loadFromFile($url);
     }
 
-    public function __construct($contents)
+    public function __construct(string $contents)
     {
         $this->guardAgainstInvalidContents($contents);
 
@@ -38,6 +47,7 @@ class Certificate
     public function getParentCertificateUrl()
     {
         $x509 = new X509();
+
         $certProperties = $x509->loadX509($this->contents);
 
         foreach ($certProperties['tbsCertificate']['extensions'] as $extension) {
@@ -53,58 +63,29 @@ class Certificate
         return '';
     }
 
-    public function fetchParentCertificate(): Certificate {
+    public function fetchParentCertificate(): Certificate
+    {
         return static::loadFromUrl($this->getParentCertificateUrl());
     }
 
-    /**
-     * Does this certificate have a parent.
-     *
-     * @return bool
-     */
-    public function hasParentInTrustChain()
+    public function hasParentInTrustChain(): bool
     {
         return ! $this->getParentCertificateUrl() == '';
     }
 
-    /**
-     * Get the contents of the certificate.
-     *
-     * @return string
-     */
-    public function getContents()
+    public function getContents(): string
     {
         $x509 = new X509();
 
         return $x509->saveX509($x509->loadX509($this->contents)).PHP_EOL;
     }
 
-    /**
-     * Get the issuer DN of the certificate.
-     *
-     * @return string
-     */
-    public function getIssuerDN()
+    protected function guardAgainstInvalidContents(string $content)
     {
-        $x509 = new X509();
-        $x509->loadX509($this->contents);
 
-        return $x509->getIssuerDN(X509::DN_STRING);
-    }
+        if (! (new X509())->loadX509($content)) {
 
-    /**
-     * Check if inputfile is correct.
-     *
-     * @param $contents
-     *
-     * @throws Exception
-     */
-    protected function guardAgainstInvalidContents($contents)
-    {
-        $x509 = new X509();
-
-        if (! $x509->loadX509($contents)) {
-            throw new Exception('Invalid inputfile given.');
+        //    throw CouldNotCreateCertificate::invalidContent($content);
         }
     }
 }
