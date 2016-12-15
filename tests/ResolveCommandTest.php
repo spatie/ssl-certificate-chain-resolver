@@ -6,19 +6,18 @@ use PHPUnit_Framework_TestCase;
 
 class ResolveCommandTest extends PHPUnit_Framework_TestCase
 {
-    
     /** @test */
     public function it_can_resolve_a_certificate_chain()
     {
-        $inputFile = __DIR__ . '/fixtures/google/certificate.crt';
+        $inputFile = __DIR__.'/fixtures/google/certificate.crt';
 
-        $outputFile = __DIR__ . '/temp/certificateChain.crt';
+        $outputFile = __DIR__.'/temp/certificateChain.crt';
 
         unlink($outputFile);
 
         exec("php ./ssl-certificate-chain-resolver resolve {$inputFile} {$outputFile}");
 
-        $certificateChain = __DIR__ . '/fixtures/google/certificateChain.crt';
+        $certificateChain = __DIR__.'/fixtures/google/certificateChain.crt';
 
         $this->assertFileContentsEqual($certificateChain, $outputFile);
     }
@@ -31,7 +30,8 @@ class ResolveCommandTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    protected function sanitize(string $text) {
-       return str_replace("\r", '', $text);
+    protected function sanitize(string $text)
+    {
+        return str_replace("\r", '', $text);
     }
 }
