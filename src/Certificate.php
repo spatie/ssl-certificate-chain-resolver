@@ -82,7 +82,6 @@ class Certificate
 
     protected function guardAgainstInvalidContents(string $content)
     {
-
         if (! (new X509())->loadX509($content)) {
 
         //    throw CouldNotCreateCertificate::invalidContent($content);
