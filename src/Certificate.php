@@ -70,20 +70,19 @@ class Certificate
 
     public function hasParentInTrustChain(): bool
     {
-        return !$this->getParentCertificateUrl() == '';
+        return ! $this->getParentCertificateUrl() == '';
     }
 
     public function getContents(): string
     {
         $x509 = new X509();
 
-        return $x509->saveX509($x509->loadX509($this->contents)) . PHP_EOL;
+        return $x509->saveX509($x509->loadX509($this->contents)).PHP_EOL;
     }
 
     protected function guardAgainstInvalidContents(string $content)
     {
-
-        if (!(new X509())->loadX509($content)) {
+        if (! (new X509())->loadX509($content)) {
             throw CouldNotCreateCertificate::invalidContent($content);
         }
     }
