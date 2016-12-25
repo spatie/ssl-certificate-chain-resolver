@@ -31,8 +31,8 @@ class CertificateChainTest extends TestCase
     public function certificateTypeProvider(): array
     {
         return [
-           // ['dv-google'],
-           ['letsencrypt'],
+           ['dv-google'],
+           //['letsencrypt'],
            // ['ev-coolblue'],
         ];
     }
