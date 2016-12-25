@@ -75,31 +75,14 @@ class ResolveCommand extends Command
         $output->writeln('<info>All done!</info>');
     }
 
-    /**
-     * Validate the inputfile.
-     *
-     * @param $certificateFile
-     *
-     * @throws Exception
-     */
-    protected function guardAgainstInvalidInput($certificateFile)
+    protected function guardAgainstInvalidInput(string $certificateFile)
     {
         if (! file_exists($certificateFile)) {
             throw CouldNotRunCommand::inputFileDoesNotExist($certificateFile);
         }
     }
 
-    /**
-     * Check if outputfile already exists,
-     * if so, ask the user confirmation to overwrite.
-     *
-     * @param $input
-     * @param $output
-     * @param $outputFile
-     *
-     * @return bool
-     */
-    protected function confirmOverwrite($input, $output, $outputFile)
+    protected function confirmOverwrite(InputInterface $input, OutputInterface $output, string $outputFile): bool
     {
         $output->writeln('');
 

@@ -2,7 +2,9 @@
 
 namespace Spatie\CertificateChain\Exceptions;
 
-class CouldNotRunCommand extends \Exception
+use Exception;
+
+class CouldNotRunCommand extends Exception
 {
     public static function inputFileDoesNotExist(string $inputFile = '')
     {

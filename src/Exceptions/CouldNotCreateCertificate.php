@@ -2,7 +2,9 @@
 
 namespace Spatie\CertificateChain\Exceptions;
 
-class CouldNotCreateCertificate extends \Exception
+use Exception;
+
+class CouldNotCreateCertificate extends Exception
 {
     public static function invalidContent(string $content = '')
     {

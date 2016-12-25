@@ -8,7 +8,7 @@ use Spatie\CertificateChain\Exceptions\CouldNotCreateCertificate;
 class Certificate
 {
     /**
-     * @param string The contents of the certificate
+     * @param string
      */
     protected $contents;
 

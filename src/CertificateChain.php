@@ -18,7 +18,7 @@ class CertificateChain
         $this->certificates = collect()->push($certificate);
     }
 
-    public function getContentOfCompleteChain()
+    public function getContentOfCompleteChain(): string
     {
         while ($this->lastCertificate()->hasParentInTrustChain()) {
             $this->certificates->push($this->lastCertificate()->fetchParentCertificate());

@@ -13,7 +13,7 @@ class Application extends ConsoleApplication
         $this->add(new ResolveCommand());
     }
 
-    public function getLongVersion()
+    public function getLongVersion(): string
     {
         return parent::getLongVersion().' by <comment>Spatie</comment>';
     }
