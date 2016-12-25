@@ -58,6 +58,10 @@ You can update <b>ssl-certificate-chain-resolver</b> to the latest version by ru
 composer global update spatie/ssl-certificate-chain-resolver
 ```
 
+## Limitations
+
+Currently this package does not work with Entity validation certificates or certificates issued by Let's Encrypt. A PR that adds this to package would be highly appreciated.
+
 ## Testing
 
 Functional and unit tests are included with the package.

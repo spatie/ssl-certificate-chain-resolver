@@ -2,6 +2,10 @@
 
 All notable changes to ssl-certificate-chain-resolver will be documented in this file.
 
+## 2.0.0 - 2016-12-15
+
+- Complete rewrite for readability
+
 ## 1.0.6 - 2016-09-22
 
 - Upped the required versions for phpseclib, guzzle & symfony console.

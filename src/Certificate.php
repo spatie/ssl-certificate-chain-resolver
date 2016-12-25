@@ -41,10 +41,8 @@ class Certificate
 
     /**
      * Get the URL of the parent certificate.
-     *
-     * @return string
      */
-    public function getParentCertificateUrl()
+    public function getParentCertificateUrl(): string
     {
         $x509 = new X509();
 
