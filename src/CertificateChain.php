@@ -6,7 +6,8 @@ class CertificateChain
 {
     protected $certificates;
 
-    public static function fetchForCertificate(Certificate $certificate) {
+    public static function fetchForCertificate(Certificate $certificate)
+    {
         $certificateChain = new static($certificate);
 
         return $certificateChain->getContentOfCompleteChain();
@@ -19,12 +20,12 @@ class CertificateChain
 
     public function getContentOfCompleteChain()
     {
-        while($this->lastCertificate()->hasParentInTrustChain()) {
+        while ($this->lastCertificate()->hasParentInTrustChain()) {
             $this->certificates->push($this->lastCertificate()->fetchParentCertificate());
         }
 
-        return $this->certificates->map(function(Certificate $certificate) {
-           return $certificate->getContents();
+        return $this->certificates->map(function (Certificate $certificate) {
+            return $certificate->getContents();
         })->implode('');
     }
 
