@@ -61,7 +61,7 @@ class Certificate
         return '';
     }
 
-    public function fetchParentCertificate(): Certificate
+    public function fetchParentCertificate(): self
     {
         return static::loadFromUrl($this->getParentCertificateUrl());
     }
