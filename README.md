@@ -2,7 +2,6 @@
 [![Latest Version](https://img.shields.io/github/release/spatie/ssl-certificate-chain-resolver.svg?style=flat-square)](https://github.com/spatie/ssl-certificate-chain-resolver/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/spatie/ssl-certificate-chain-resolver/master.svg?style=flat-square)](https://travis-ci.org/spatie/ssl-certificate-chain-resolver)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/2912a3ab-51a8-4e07-9bad-fd94a833f989.svg)](https://insight.sensiolabs.com/projects/2912a3ab-51a8-4e07-9bad-fd94a833f989)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/ssl-certificate-chain-resolver.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/ssl-certificate-chain-resolver)
 [![StyleCI](https://styleci.io/repos/29939986/shield?branch=master)](https://styleci.io/repos/29939986)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/ssl-certificate-chain-resolver.svg?style=flat-square)](https://packagist.org/packages/spatie/ssl-certificate-chain-resolver)
