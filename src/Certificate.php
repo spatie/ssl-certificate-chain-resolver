@@ -42,15 +42,17 @@ class Certificate
 
     public function __construct(string $contents)
     {
+        $certificate = $contents;
+
         // If we are missing the pem certificate header, try to convert it to a pem format first
         if (! empty($contents) && strpos($contents, '-----BEGIN CERTIFICATE-----') === false) {
             // Extract from either a PKCS#7 format or DER formatted contents
-            $contents = self::convertPkcs72Pem($contents) ?? self::convertDer2Pem($contents);
+            $certificate = self::convertPkcs72Pem($contents) ?? self::convertDer2Pem($contents);
         }
 
-        $this->guardAgainstInvalidContents($contents);
+        $this->guardAgainstInvalidContents($certificate, $contents);
 
-        $this->contents = $contents;
+        $this->contents = $certificate;
     }
 
     /**
@@ -96,10 +98,10 @@ class Certificate
         return $x509->saveX509($x509->loadX509($this->contents)).PHP_EOL;
     }
 
-    protected function guardAgainstInvalidContents(string $content)
+    protected function guardAgainstInvalidContents(string $content, string $original)
     {
         if (! (new X509())->loadX509($content)) {
-            throw CouldNotCreateCertificate::invalidContent($content);
+            throw CouldNotCreateCertificate::invalidContent($original);
         }
     }
 
