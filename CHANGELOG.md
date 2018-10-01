@@ -2,6 +2,10 @@
 
 All notable changes to ssl-certificate-chain-resolver will be documented in this file.
 
+## 2.0.1 - 2018-05-09
+
+- add support for symfony 4
+
 ## 2.0.0 - 2016-12-15
 
 - Complete rewrite for readability

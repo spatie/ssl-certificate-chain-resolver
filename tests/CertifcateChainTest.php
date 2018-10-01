@@ -28,6 +28,15 @@ class CertifcateChainTest extends TestCase
         );
     }
 
+    /** @test */
+    public function it_throws_exception_on_invalid_certificate_chain()
+    {
+        $this->expectException(\Spatie\CertificateChain\Exceptions\CouldNotCreateCertificate::class);
+        $this->expectExceptionMessage('Could not create a certificate with content `invalid_content`.');
+
+        new Certificate('invalid_content');
+    }
+
     public function certificateTypeProvider(): array
     {
         return [
