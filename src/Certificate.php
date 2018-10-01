@@ -43,7 +43,7 @@ class Certificate
     public function __construct(string $contents)
     {
         // If we are missing the pem certificate header, try to convert it to a pem format first
-        if (!empty($contents) && strpos($contents, '-----BEGIN CERTIFICATE-----') === false) {
+        if (! empty($contents) && strpos($contents, '-----BEGIN CERTIFICATE-----') === false) {
             // Extract from either a PKCS#7 format or DER formatted contents
             $contents = self::convertPkcs72Pem($contents) ?? self::convertDer2Pem($contents);
         }
@@ -105,13 +105,13 @@ class Certificate
 
     protected function convertPkcs72Pem(string $pkcs7)
     {
-        $asn     = new ASN1();
+        $asn = new ASN1();
         $decoded = $asn->decodeBER($pkcs7);
-        $data    = $decoded[0]['content'] ?? [];
+        $data = $decoded[0]['content'] ?? [];
 
         // Make sure we are dealing with actual data
         if (empty($data)) {
-            return null;
+            return;
         }
 
         // Make sure this is an PKCS#7 signedData object
@@ -137,8 +137,6 @@ class Certificate
                 }
             }
         }
-
-        return null;
     }
 
     protected function convertDer2Pem(string $der_data, $type = 'CERTIFICATE'): string
