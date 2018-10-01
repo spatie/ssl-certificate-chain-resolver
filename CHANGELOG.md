@@ -2,6 +2,11 @@
 
 All notable changes to ssl-certificate-chain-resolver will be documented in this file.
 
+
+## 2.0.2 - 2018-10-01
+
+- fix for Let's Encrypt and Coolblue certificates
+
 ## 2.0.1 - 2018-05-09
 
 - add support for symfony 4
