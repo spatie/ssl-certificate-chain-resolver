@@ -60,9 +60,7 @@ class Certificate
      */
     public function getParentCertificateUrl(): string
     {
-        $x509 = new X509();
-
-        $certProperties = $x509->loadX509($this->contents);
+        $certProperties = (new X509())->loadX509($this->contents);
 
         if (empty($certProperties['tbsCertificate']['extensions'])) {
             return '';
@@ -107,8 +105,7 @@ class Certificate
 
     protected function convertPkcs72Pem(string $pkcs7)
     {
-        $asn = new ASN1();
-        $decoded = $asn->decodeBER($pkcs7);
+        $decoded = (new ASN1())->decodeBER($pkcs7);
         $data = $decoded[0]['content'] ?? [];
 
         // Make sure we are dealing with actual data

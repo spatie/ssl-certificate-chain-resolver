@@ -8,9 +8,7 @@ class CertificateChain
 
     public static function fetchForCertificate(Certificate $certificate)
     {
-        $certificateChain = new static($certificate);
-
-        return $certificateChain->getContentOfCompleteChain();
+        return (new static($certificate))->getContentOfCompleteChain();
     }
 
     public function __construct(Certificate $certificate)
