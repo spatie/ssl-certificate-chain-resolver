@@ -86,7 +86,7 @@ This results in 'untrusted'-warnings like this, since the browser thinks you are
 
 ![Untrusted Warning](images/untrusted.png)
 
-A server should always send a complete chain, which means concatenated all certificates from the certificate to the trusted root certificate (exclusive, in this order), to prevent such issues.  So when installing a SSL certificate on a server you should install all intermediate certificates as wel. You should be able to fetch intermediate certificates from the issuer and concat them together by yourself.
+A server should always send a complete chain, which means concatenated all certificates from the certificate to the trusted root certificate (exclusive, in this order), to prevent such issues.  So when installing a SSL certificate on a server you should install all intermediate certificates as well. You should be able to fetch intermediate certificates from the issuer and concat them together by yourself.
 
 This tool helps you automatize that boring task by looping over certificate's AIA extension field.
 
