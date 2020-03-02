@@ -82,7 +82,7 @@ class Certificate
     public function fetchParentCertificate(): self
     {
         $url = $this->getParentCertificateUrl();
-        
+
         $scheme = parse_url($url, PHP_URL_SCHEME);
         if ($scheme !== 'http' && $scheme !== 'https') {
             throw CouldNotLoadCertificate::invalidCertificateUrl($url);
