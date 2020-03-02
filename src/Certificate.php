@@ -81,7 +81,14 @@ class Certificate
 
     public function fetchParentCertificate(): self
     {
-        return static::loadFromUrl($this->getParentCertificateUrl());
+        $url = $this->getParentCertificateUrl();
+        
+        $scheme = parse_url($url, PHP_URL_SCHEME);
+        if ($scheme !== "http" && $scheme !== "https") {
+            throw CouldNotLoadCertificate::invalidCertificateUrl($url);
+        }
+
+        return static::loadFromUrl();
     }
 
     public function hasParentInTrustChain(): bool
