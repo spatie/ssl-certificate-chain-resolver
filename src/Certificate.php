@@ -88,7 +88,7 @@ class Certificate
             throw CouldNotLoadCertificate::invalidCertificateUrl($url);
         }
 
-        return static::loadFromUrl();
+        return static::loadFromUrl($url);
     }
 
     public function hasParentInTrustChain(): bool
