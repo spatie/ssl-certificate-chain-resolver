@@ -4,8 +4,8 @@ namespace Spatie\CertificateChain;
 
 use phpseclib\File\ASN1;
 use phpseclib\File\X509;
-use Spatie\CertificateChain\Exceptions\CouldNotLoadCertificate;
 use Spatie\CertificateChain\Exceptions\CouldNotCreateCertificate;
+use Spatie\CertificateChain\Exceptions\CouldNotLoadCertificate;
 
 class Certificate
 {
@@ -84,7 +84,7 @@ class Certificate
         $url = $this->getParentCertificateUrl();
         
         $scheme = parse_url($url, PHP_URL_SCHEME);
-        if ($scheme !== "http" && $scheme !== "https") {
+        if ($scheme !== 'http' && $scheme !== 'https') {
             throw CouldNotLoadCertificate::invalidCertificateUrl($url);
         }
 
