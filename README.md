@@ -16,6 +16,16 @@ If you need an online tool to solve this issue, take a look at [certificatechain
 
 Spatie is a webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
+## Support us
+
+Learn how to create a package like this one, by watching our premium video course:
+
+[![Laravel Package training](https://spatie.be/github/package-training.jpg)](https://laravelpackage.training)
+
+We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+
+We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+
 ## Postcardware
 
 You're free to use this package (it's [MIT-licensed](LICENSE.md)), but if it makes it to your production environment you are required to send us a postcard from your hometown, mentioning which of our package(s) you are using.
@@ -67,14 +77,12 @@ Functional and unit tests are included with the package.
 
 You can run them yourself with ```vendor/bin/codecept run```
 
-
 ## Credits
 
 - [Freek Van der Herten](https:/murze.be)
 - [All Contributors](https://github.com/freekmurze/ssl-certificate-chain-resolver/contributors)
 
 This package was inspired by [cert-chain-resolver](https://github.com/zakjan/cert-chain-resolver/) written by [Jan Žák](http://www.zakjan.cz/). Some text, mainly the background about the trust chain, was copied from the readme of his repo.
-
 
 ## Background: the trust chain
 
@@ -96,5 +104,3 @@ Spatie is a webdesign agency in Antwerp, Belgium. You'll find an overview of all
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
-
-
