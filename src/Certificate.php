@@ -4,8 +4,8 @@ namespace Spatie\CertificateChain;
 
 use phpseclib\File\ASN1;
 use phpseclib\File\X509;
-use Spatie\CertificateChain\Exceptions\CouldNotLoadCertificate;
 use Spatie\CertificateChain\Exceptions\CouldNotCreateCertificate;
+use Spatie\CertificateChain\Exceptions\CouldNotLoadCertificate;
 
 class Certificate
 {
