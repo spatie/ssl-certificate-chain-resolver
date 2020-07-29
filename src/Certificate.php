@@ -4,8 +4,8 @@ namespace Spatie\CertificateChain;
 
 use phpseclib\File\ASN1;
 use phpseclib\File\X509;
-use Spatie\CertificateChain\Exceptions\CouldNotLoadCertificate;
 use Spatie\CertificateChain\Exceptions\CouldNotCreateCertificate;
+use Spatie\CertificateChain\Exceptions\CouldNotLoadCertificate;
 
 class Certificate
 {
@@ -81,7 +81,16 @@ class Certificate
 
     public function fetchParentCertificate(): self
     {
-        return static::loadFromUrl($this->getParentCertificateUrl());
+        $url = $this->getParentCertificateUrl();
+
+        // Only allow for parent certificates to be read from HTTP and HTTPS URLs to 
+        // prevent local file inclusion vulnerabilities
+        $scheme = parse_url($url, PHP_URL_SCHEME);
+        if (! in_array($scheme, ['http', 'https'])) {
+            throw CouldNotLoadCertificate::invalidCertificateUrl($url);
+        }
+
+        return static::loadFromUrl($url);
     }
 
     public function hasParentInTrustChain(): bool
