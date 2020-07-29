@@ -2,6 +2,9 @@
 
 All notable changes to ssl-certificate-chain-resolver will be documented in this file.
 
+## 2.0.3 - 2020-07-29
+
+- restrict certificate loading to HTTP and HTTPS urls (#34)
 
 ## 2.0.2 - 2018-10-01
 
