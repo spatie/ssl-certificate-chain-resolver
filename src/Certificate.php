@@ -83,7 +83,7 @@ class Certificate
     {
         $url = $this->getParentCertificateUrl();
 
-        // Only allow for parent certificates to be read from HTTP and HTTPS URLs to 
+        // Only allow for parent certificates to be read from HTTP and HTTPS URLs to
         // prevent local file inclusion vulnerabilities
         $scheme = parse_url($url, PHP_URL_SCHEME);
         if (! in_array($scheme, ['http', 'https'])) {

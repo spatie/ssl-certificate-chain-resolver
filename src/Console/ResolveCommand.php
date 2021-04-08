@@ -6,11 +6,11 @@ use Exception;
 use GuzzleHttp\Client;
 use Spatie\CertificateChain\Certificate;
 use Spatie\CertificateChain\CertificateChain;
+use Spatie\CertificateChain\Exceptions\CouldNotRunCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Spatie\CertificateChain\Exceptions\CouldNotRunCommand;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 
 class ResolveCommand extends Command
