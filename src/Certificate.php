@@ -15,8 +15,7 @@ class Certificate
     protected $contents;
 
     /**
-     * @param string $inputFile
-     *
+     * @param  string  $inputFile
      * @return static
      */
     public static function loadFromFile(string $inputFile)
@@ -31,8 +30,7 @@ class Certificate
     }
 
     /**
-     * @param string $url
-     *
+     * @param  string  $url
      * @return static
      */
     public static function loadFromUrl(string $url)
@@ -83,7 +81,7 @@ class Certificate
     {
         $url = $this->getParentCertificateUrl();
 
-        // Only allow for parent certificates to be read from HTTP and HTTPS URLs to 
+        // Only allow for parent certificates to be read from HTTP and HTTPS URLs to
         // prevent local file inclusion vulnerabilities
         $scheme = parse_url($url, PHP_URL_SCHEME);
         if (! in_array($scheme, ['http', 'https'])) {
