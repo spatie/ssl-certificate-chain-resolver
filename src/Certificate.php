@@ -15,8 +15,7 @@ class Certificate
     protected $contents;
 
     /**
-     * @param string $inputFile
-     *
+     * @param  string  $inputFile
      * @return static
      */
     public static function loadFromFile(string $inputFile)
@@ -31,8 +30,7 @@ class Certificate
     }
 
     /**
-     * @param string $url
-     *
+     * @param  string  $url
      * @return static
      */
     public static function loadFromUrl(string $url)
