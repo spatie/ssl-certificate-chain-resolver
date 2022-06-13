@@ -2,8 +2,8 @@
 
 namespace Spatie\CertificateChain;
 
-use phpseclib\File\ASN1;
-use phpseclib\File\X509;
+use phpseclib3\File\ASN1;
+use phpseclib3\File\X509;
 use Spatie\CertificateChain\Exceptions\CouldNotCreateCertificate;
 use Spatie\CertificateChain\Exceptions\CouldNotLoadCertificate;
 
@@ -47,7 +47,7 @@ class Certificate
         // If we are missing the pem certificate header, try to convert it to a pem format first
         if (! empty($contents) && strpos($contents, '-----BEGIN CERTIFICATE-----') === false) {
             // Extract from either a PKCS#7 format or DER formatted contents
-            $certificate = self::convertPkcs72Pem($contents) ?? self::convertDer2Pem($contents);
+            $certificate = $this->convertPkcs72Pem($contents) ?? $this->convertDer2Pem($contents);
         }
 
         $this->guardAgainstInvalidContents($certificate, $contents);
@@ -83,7 +83,7 @@ class Certificate
     {
         $url = $this->getParentCertificateUrl();
 
-        // Only allow for parent certificates to be read from HTTP and HTTPS URLs to 
+        // Only allow for parent certificates to be read from HTTP and HTTPS URLs to
         // prevent local file inclusion vulnerabilities
         $scheme = parse_url($url, PHP_URL_SCHEME);
         if (! in_array($scheme, ['http', 'https'])) {
@@ -114,7 +114,7 @@ class Certificate
 
     protected function convertPkcs72Pem(string $pkcs7)
     {
-        $decoded = (new ASN1())->decodeBER($pkcs7);
+        $decoded = ASN1::decodeBER($pkcs7);
         $data = $decoded[0]['content'] ?? [];
 
         // Make sure we are dealing with actual data

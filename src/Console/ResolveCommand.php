@@ -41,7 +41,7 @@ class ResolveCommand extends Command
      * @param InputInterface  $input
      * @param OutputInterface $output
      *
-     * @return int|null|void
+     * @return int
      *
      * @throws Exception
      */
@@ -61,7 +61,7 @@ class ResolveCommand extends Command
             if (! $this->confirmOverwrite($input, $output, $outputFile)) {
                 $output->writeln('<info>Cancelling...</info>');
 
-                return true;
+                return Command::FAILURE;
             }
         }
 
@@ -73,6 +73,8 @@ class ResolveCommand extends Command
 
         $output->writeln('<info>Saved trust chain in '.$outputFile.'</info>');
         $output->writeln('<info>All done!</info>');
+
+        return Command::SUCCESS;
     }
 
     protected function guardAgainstInvalidInput(string $certificateFile)
