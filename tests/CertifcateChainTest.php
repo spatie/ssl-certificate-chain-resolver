@@ -12,7 +12,7 @@ class CertifcateChainTest extends TestCase
      *
      * @dataProvider certificateTypeProvider
      *
-     * @param string $certificateType
+     * @param  string  $certificateType
      */
     public function it_can_fetch_a_certificate_chain(string $certificateType)
     {
@@ -40,9 +40,9 @@ class CertifcateChainTest extends TestCase
     public function certificateTypeProvider(): array
     {
         return [
-           ['dv-google'],
-           ['letsencrypt'],
-           ['ev-coolblue'],
+            ['dv-google'],
+            ['letsencrypt'],
+            ['ev-coolblue'],
         ];
     }
 }
