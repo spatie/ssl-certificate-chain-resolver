@@ -15,8 +15,6 @@ If not all intermediate certificates are installed on your server, some clients 
 
 This tool can help you fix the [incomplete certificate chain issue](#background-the-trust-chain), also reported as *Extra download* by [Qualys SSL Server Test](https://www.ssllabs.com/ssltest/).
 
-If you need an online tool to solve this issue, take a look at [certificatechain.io](https://certificatechain.io)
-
 Spatie is a webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
 ## Support us
