@@ -1,6 +1,3 @@
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
-
 # SSL Certificate Chain Resolver
 [![Latest Version](https://img.shields.io/github/release/spatie/ssl-certificate-chain-resolver.svg?style=flat-square)](https://github.com/spatie/ssl-certificate-chain-resolver/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
