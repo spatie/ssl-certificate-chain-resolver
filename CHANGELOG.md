@@ -2,6 +2,14 @@
 
 All notable changes to ssl-certificate-chain-resolver will be documented in this file.
 
+## 3.1.0 - 2026-11-18
+
+- Require PHP 8.4 or higher, Illuminate Collections 12 or 13, and Symfony Console 8.
+- Fix command registration for Symfony Console 8.1.
+- Migrate the test suite to Pest 5 with offline certificate fixtures.
+- Replace Travis CI with GitHub Actions testing PHP 8.4 and 8.5 with lowest and latest dependencies.
+- Add Pint and PHPStan level 5 checks to CI.
+
 ## 2.0.3 - 2020-07-29
 
 - restrict certificate loading to HTTP and HTTPS urls (#34)

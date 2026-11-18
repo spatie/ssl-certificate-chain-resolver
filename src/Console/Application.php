@@ -8,7 +8,7 @@ class Application extends ConsoleApplication
 {
     public function __construct()
     {
-        parent::__construct('Ssl certificate chain resolver', '2.0.0');
+        parent::__construct('Ssl certificate chain resolver', '3.1.0');
 
         $this->addCommand(new ResolveCommand);
     }
