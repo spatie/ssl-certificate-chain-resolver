@@ -1,9 +1,7 @@
 # SSL Certificate Chain Resolver
 [![Latest Version](https://img.shields.io/github/release/spatie/ssl-certificate-chain-resolver.svg?style=flat-square)](https://github.com/spatie/ssl-certificate-chain-resolver/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/spatie/ssl-certificate-chain-resolver/master.svg?style=flat-square)](https://travis-ci.org/spatie/ssl-certificate-chain-resolver)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/ssl-certificate-chain-resolver.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/ssl-certificate-chain-resolver)
-[![StyleCI](https://styleci.io/repos/29939986/shield?branch=master)](https://styleci.io/repos/29939986)
+[![Tests](https://img.shields.io/github/actions/workflow/status/spatie/ssl-certificate-chain-resolver/tests.yml?branch=main&style=flat-square)](https://github.com/spatie/ssl-certificate-chain-resolver/actions/workflows/tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/ssl-certificate-chain-resolver.svg?style=flat-square)](https://packagist.org/packages/spatie/ssl-certificate-chain-resolver)
 
 All operating systems contain a set of default trusted root certificates. But Certificate Authorities usually don't use their root certificate to sign customer certificates. They use so called intermediate certificates instead, because these can be rotated more frequently.
@@ -31,6 +29,8 @@ Our address is: Spatie, Kruikstraat 22, 2018 Antwerp, Belgium.
 The best postcards will get published on the open source page on our website.
 
 ## Installation
+
+This package requires PHP 8.4 or higher.
 
 This package can be installed using composer by running this command.
 
@@ -69,9 +69,22 @@ Currently this package does not work with Entity validation certificates or cert
 
 ## Testing
 
-Functional and unit tests are included with the package.
+Install the development dependencies and run the Pest suite:
 
-You can run them yourself with ```vendor/bin/codecept run```
+```bash
+composer install
+composer test
+```
+
+The tests use local certificate fixtures and do not download certificates from external servers.
+
+Run all checks, including Pint and PHPStan level 5:
+
+```bash
+composer check
+```
+
+Use `composer format` to fix code style, or `composer analyse` to run PHPStan separately.
 
 ## Credits
 

@@ -7,15 +7,13 @@ use phpseclib3\File\X509;
 use Spatie\CertificateChain\Exceptions\CouldNotCreateCertificate;
 use Spatie\CertificateChain\Exceptions\CouldNotLoadCertificate;
 
+/** @phpstan-consistent-constructor */
 class Certificate
 {
-    /**
-     * @param string
-     */
+    /** @var string */
     protected $contents;
 
     /**
-     * @param  string  $inputFile
      * @return static
      */
     public static function loadFromFile(string $inputFile)
@@ -30,7 +28,6 @@ class Certificate
     }
 
     /**
-     * @param  string  $url
      * @return static
      */
     public static function loadFromUrl(string $url)
@@ -43,7 +40,7 @@ class Certificate
         $certificate = $contents;
 
         // If we are missing the pem certificate header, try to convert it to a pem format first
-        if (! empty($contents) && strpos($contents, '-----BEGIN CERTIFICATE-----') === false) {
+        if (! empty($contents) && ! str_contains($contents, '-----BEGIN CERTIFICATE-----')) {
             // Extract from either a PKCS#7 format or DER formatted contents
             $certificate = $this->convertPkcs72Pem($contents) ?? $this->convertDer2Pem($contents);
         }
@@ -58,7 +55,7 @@ class Certificate
      */
     public function getParentCertificateUrl(): string
     {
-        $certProperties = (new X509())->loadX509($this->contents);
+        $certProperties = (new X509)->loadX509($this->contents);
 
         if (empty($certProperties['tbsCertificate']['extensions'])) {
             return '';
@@ -93,19 +90,19 @@ class Certificate
 
     public function hasParentInTrustChain(): bool
     {
-        return ! $this->getParentCertificateUrl() == '';
+        return (bool) $this->getParentCertificateUrl();
     }
 
     public function getContents(): string
     {
-        $x509 = new X509();
+        $x509 = new X509;
 
         return $x509->saveX509($x509->loadX509($this->contents)).PHP_EOL;
     }
 
     protected function guardAgainstInvalidContents(string $content, string $original)
     {
-        if (! (new X509())->loadX509($content)) {
+        if (! (new X509)->loadX509($content)) {
             throw CouldNotCreateCertificate::invalidContent($original);
         }
     }

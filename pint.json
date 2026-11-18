@@ -1,0 +1,6 @@
+{
+    "preset": "laravel",
+    "notPath": [
+        ".amp"
+    ]
+}

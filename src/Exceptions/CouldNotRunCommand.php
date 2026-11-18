@@ -4,6 +4,7 @@ namespace Spatie\CertificateChain\Exceptions;
 
 use Exception;
 
+/** @phpstan-consistent-constructor */
 class CouldNotRunCommand extends Exception
 {
     public static function inputFileDoesNotExist(string $inputFile = '')

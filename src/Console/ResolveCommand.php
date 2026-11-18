@@ -8,6 +8,7 @@ use Spatie\CertificateChain\Certificate;
 use Spatie\CertificateChain\CertificateChain;
 use Spatie\CertificateChain\Exceptions\CouldNotRunCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -17,10 +18,7 @@ class ResolveCommand extends Command
 {
     protected $httpClient;
 
-    /**
-     * Configure the command options.
-     */
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('resolve')
             ->setDescription('Download all intermediate certificates in the trust chain.')
@@ -32,19 +30,15 @@ class ResolveCommand extends Command
     {
         parent::__construct();
 
-        $this->httpClient = new Client();
+        $this->httpClient = new Client;
     }
 
     /**
      * Execute the command.
      *
-     * @param  InputInterface  $input
-     * @param  OutputInterface  $output
-     * @return int
-     *
      * @throws Exception
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('<info>Start resolving trust chain...</info>');
 
@@ -87,6 +81,7 @@ class ResolveCommand extends Command
     {
         $output->writeln('');
 
+        /** @var QuestionHelper $helper */
         $helper = $this->getHelper('question');
         $question = new ConfirmationQuestion('<comment>Outputfile '.$outputFile.' already exists. Do you want to overwrite it? (y/n) </comment>', false);
 

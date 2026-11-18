@@ -2,8 +2,12 @@
 
 namespace Spatie\CertificateChain;
 
+use Illuminate\Support\Collection;
+
+/** @phpstan-consistent-constructor */
 class CertificateChain
 {
+    /** @var Collection<int, Certificate> */
     protected $certificates;
 
     public static function fetchForCertificate(Certificate $certificate)
@@ -22,9 +26,9 @@ class CertificateChain
             $this->certificates->push($this->lastCertificate()->fetchParentCertificate());
         }
 
-        return $this->certificates->map(function (Certificate $certificate) {
-            return $certificate->getContents();
-        })->implode('');
+        return $this->certificates
+            ->map(fn (Certificate $certificate) => $certificate->getContents())
+            ->implode('');
     }
 
     protected function lastCertificate(): Certificate

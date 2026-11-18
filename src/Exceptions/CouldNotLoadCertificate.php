@@ -4,6 +4,7 @@ namespace Spatie\CertificateChain\Exceptions;
 
 use Exception;
 
+/** @phpstan-consistent-constructor */
 class CouldNotLoadCertificate extends Exception
 {
     public static function cannotGetContents(string $file = '')
