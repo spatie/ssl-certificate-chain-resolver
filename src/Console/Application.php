@@ -10,7 +10,10 @@ class Application extends ConsoleApplication
     {
         parent::__construct('Ssl certificate chain resolver', '2.0.0');
 
-        $this->add(new ResolveCommand());
+        $command = new ResolveCommand();
+
+        // add() was removed in Symfony 8.1; addCommand() exists since 7.4.
+        method_exists($this, 'addCommand') ? $this->addCommand($command) : $this->add($command);
     }
 
     public function getLongVersion(): string

@@ -20,7 +20,7 @@ class ResolveCommand extends Command
     /**
      * Configure the command options.
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('resolve')
             ->setDescription('Download all intermediate certificates in the trust chain.')
@@ -44,7 +44,7 @@ class ResolveCommand extends Command
      *
      * @throws Exception
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('<info>Start resolving trust chain...</info>');
 

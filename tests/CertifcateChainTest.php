@@ -42,7 +42,7 @@ class CertifcateChainTest extends TestCase
         return [
             ['dv-google'],
             ['letsencrypt'],
-            ['ev-coolblue'],
+            ['ev-paypal'],
         ];
     }
 }
