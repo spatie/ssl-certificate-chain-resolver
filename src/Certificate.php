@@ -40,7 +40,7 @@ class Certificate
         $certificate = $contents;
 
         // If we are missing the pem certificate header, try to convert it to a pem format first
-        if (! empty($contents) && ! str_contains($contents, '-----BEGIN CERTIFICATE-----')) {
+        if (!empty($contents) && !str_contains($contents, '-----BEGIN CERTIFICATE-----')) {
             // Extract from either a PKCS#7 format or DER formatted contents
             $certificate = $this->convertPkcs72Pem($contents) ?? $this->convertDer2Pem($contents);
         }
@@ -55,7 +55,7 @@ class Certificate
      */
     public function getParentCertificateUrl(): string
     {
-        $certProperties = (new X509)->loadX509($this->contents);
+        $certProperties = (new X509())->loadX509($this->contents);
 
         if (empty($certProperties['tbsCertificate']['extensions'])) {
             return '';
@@ -81,7 +81,7 @@ class Certificate
         // Only allow for parent certificates to be read from HTTP and HTTPS URLs to
         // prevent local file inclusion vulnerabilities
         $scheme = parse_url($url, PHP_URL_SCHEME);
-        if (! in_array($scheme, ['http', 'https'])) {
+        if (!in_array($scheme, ['http', 'https'])) {
             throw CouldNotLoadCertificate::invalidCertificateUrl($url);
         }
 
@@ -95,14 +95,14 @@ class Certificate
 
     public function getContents(): string
     {
-        $x509 = new X509;
+        $x509 = new X509();
 
         return $x509->saveX509($x509->loadX509($this->contents)).PHP_EOL;
     }
 
     protected function guardAgainstInvalidContents(string $content, string $original)
     {
-        if (! (new X509)->loadX509($content)) {
+        if (!(new X509())->loadX509($content)) {
             throw CouldNotCreateCertificate::invalidContent($original);
         }
     }

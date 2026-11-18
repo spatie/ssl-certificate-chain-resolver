@@ -61,9 +61,10 @@ it('stops at a certificate without a parent URL', function () {
 });
 
 it('rejects non HTTP parent certificate URLs', function (string $url) {
-    $certificate = new class($url) extends Certificate
-    {
-        public function __construct(protected string $url) {}
+    $certificate = new class($url) extends Certificate {
+        public function __construct(protected string $url)
+        {
+        }
 
         public function getParentCertificateUrl(): string
         {

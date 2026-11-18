@@ -30,7 +30,7 @@ class ResolveCommand extends Command
     {
         parent::__construct();
 
-        $this->httpClient = new Client;
+        $this->httpClient = new Client();
     }
 
     /**
@@ -44,14 +44,14 @@ class ResolveCommand extends Command
 
         $certificateFile = $input->getArgument('certificate');
 
-        if (! file_exists($certificateFile)) {
+        if (!file_exists($certificateFile)) {
             throw CouldNotRunCommand::inputFileDoesNotExist($certificateFile);
         }
 
         $outputFile = $input->getArgument('outputFile') ?: 'certificate-including-trust-chain.crt';
 
         if (file_exists($outputFile)) {
-            if (! $this->confirmOverwrite($input, $output, $outputFile)) {
+            if (!$this->confirmOverwrite($input, $output, $outputFile)) {
                 $output->writeln('<info>Cancelling...</info>');
 
                 return Command::FAILURE;
@@ -72,7 +72,7 @@ class ResolveCommand extends Command
 
     protected function guardAgainstInvalidInput(string $certificateFile)
     {
-        if (! file_exists($certificateFile)) {
+        if (!file_exists($certificateFile)) {
             throw CouldNotRunCommand::inputFileDoesNotExist($certificateFile);
         }
     }
@@ -85,7 +85,7 @@ class ResolveCommand extends Command
         $helper = $this->getHelper('question');
         $question = new ConfirmationQuestion('<comment>Outputfile '.$outputFile.' already exists. Do you want to overwrite it? (y/n) </comment>', false);
 
-        if (! $helper->ask($input, $output, $question)) {
+        if (!$helper->ask($input, $output, $question)) {
             return false;
         }
 

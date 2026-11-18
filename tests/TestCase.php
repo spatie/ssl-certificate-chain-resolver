@@ -11,11 +11,11 @@ abstract class TestCase extends BaseTestCase
         parent::setUp();
 
         CertificateStream::$responses = [
-            'http://www.thawte.com/repository/Thawte_SGC_CA.crt' => $this->certificateContents('dv-google', 1),
-            'http://cert.int-x3.letsencrypt.org/' => $this->certificateContents('letsencrypt', 1),
-            'http://apps.identrust.com/roots/dstrootcax3.p7c' => $this->certificateContents('letsencrypt', 2),
+            'http://www.thawte.com/repository/Thawte_SGC_CA.crt'                    => $this->certificateContents('dv-google', 1),
+            'http://cert.int-x3.letsencrypt.org/'                                   => $this->certificateContents('letsencrypt', 1),
+            'http://apps.identrust.com/roots/dstrootcax3.p7c'                       => $this->certificateContents('letsencrypt', 2),
             'http://crt.comodoca.com/COMODORSAExtendedValidationSecureServerCA.crt' => $this->certificateContents('ev-coolblue', 1),
-            'http://crt.comodoca.com/COMODORSAAddTrustCA.crt' => $this->certificateContents('ev-coolblue', 2),
+            'http://crt.comodoca.com/COMODORSAAddTrustCA.crt'                       => $this->certificateContents('ev-coolblue', 2),
         ];
 
         foreach (['http', 'https'] as $scheme) {

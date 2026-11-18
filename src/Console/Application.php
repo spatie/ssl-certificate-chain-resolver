@@ -10,7 +10,7 @@ class Application extends ConsoleApplication
     {
         parent::__construct('Ssl certificate chain resolver', '2.0.0');
 
-        $this->addCommand(new ResolveCommand);
+        $this->addCommand(new ResolveCommand());
     }
 
     public function getLongVersion(): string

@@ -6,11 +6,11 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 it('has a resolve command to fetch a certificate chain', function () {
     $outputFile = __DIR__.'/temp/certificateChain.crt';
-    $command = new CommandTester((new Application)->find('resolve'));
+    $command = new CommandTester((new Application())->find('resolve'));
 
     $command->execute([
         'certificate' => __DIR__.'/fixtures/dv-google/certificate.crt',
-        'outputFile' => $outputFile,
+        'outputFile'  => $outputFile,
     ]);
 
     $command->assertCommandIsSuccessful();
@@ -21,12 +21,12 @@ it('has a resolve command to fetch a certificate chain', function () {
 it('only overwrites an existing chain with confirmation', function (string $answer, int $status, bool $overwritten) {
     $outputFile = __DIR__.'/temp/certificateChain.crt';
     file_put_contents($outputFile, 'existing contents');
-    $command = new CommandTester((new Application)->find('resolve'));
+    $command = new CommandTester((new Application())->find('resolve'));
     $command->setInputs([$answer]);
 
     $command->execute([
         'certificate' => __DIR__.'/fixtures/dv-google/certificate.crt',
-        'outputFile' => $outputFile,
+        'outputFile'  => $outputFile,
     ]);
 
     expect($command->getStatusCode())->toBe($status)
@@ -41,7 +41,7 @@ it('only overwrites an existing chain with confirmation', function (string $answ
 ]);
 
 it('reports a missing input file', function () {
-    $command = new CommandTester((new Application)->find('resolve'));
+    $command = new CommandTester((new Application())->find('resolve'));
 
     expect(fn () => $command->execute(['certificate' => __DIR__.'/fixtures/missing.crt']))
         ->toThrow(CouldNotRunCommand::class);
